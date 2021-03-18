@@ -1,12 +1,12 @@
 image: gcc
 
 before_script:
-    - apt-get update && apt-get install clang-tidy -y 
+    - apt-get update && apt-get install python3-pip && pip3 install cpplint
 
 build:
   stage: build
   script:
-    - clang-tidy main.cpp Word.h Word.cpp
+    - cpplint main.cpp Word.h Word.cpp
     - make
   artifacts:
     paths:
