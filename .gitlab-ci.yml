@@ -1,7 +1,7 @@
 image: gcc
 
 before_script:
-    - apt-get update && apt-get install python3-pip -y && pip3 install cpplint 
+    - apt-get update && apt-get install python3-pip -y && pip3 install cpplint
 
 build:
   stage: build
