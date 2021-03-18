@@ -1,0 +1,19 @@
+image: gcc
+
+before_script:
+    - sudo apt-get update && sudo apt-get install clang-tidy -y 
+
+build:
+  stage: build
+  script:
+    - clang-tidy main.cpp Word.h Word.cpp
+    - make
+  artifacts:
+    paths:
+      - gallow
+
+# run tests using the binary built before
+#test:
+  #stage: test
+  #script:
+   # - ./runmytests.sh
