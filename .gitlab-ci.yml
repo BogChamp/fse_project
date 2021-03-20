@@ -1,12 +1,15 @@
 image: gcc
 
 before_script:
-    - apt-get update && apt-get install python3-pip -y && pip3 install cpplint
+    - apt-get update && apt-get install python3-pip -y && pip3 install cpplint && apt-get install libgtest-dev && apt-get install cmake && pip3 install gcovr
 
 build:
   stage: build
   script:
     - cpplint main.cpp Word.h Word.cpp
+    - g++ Test.cpp Word.cpp --coverage -g -lgtest -lpthread -fprofile-arcs -ftest-coverage -fPIC -O0 -o q
+    - ./q
+    - gcovr -r .
     - make
   artifacts:
     paths:
