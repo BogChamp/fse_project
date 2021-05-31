@@ -9,14 +9,6 @@ before_script:
     - apt-get install cmake -y
     - pip3 install gcovr
 
-lint:
-  script:
-    - make lint
-
-test:
-  script:
-    - make test
-
 build:
   stage: build
   script:
@@ -24,3 +16,11 @@ build:
   artifacts:
     paths:
       - hangman
+
+lint:
+  script:
+    - make lint
+
+test:
+  script:
+    - make test
