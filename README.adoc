@@ -1,4 +1,4 @@
-#Follow the instructions:
+# Follow the instructions:
 
 1. git clone https://gitlab.com/BogChamp/the-gallow.git
 
