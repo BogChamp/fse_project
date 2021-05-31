@@ -1,43 +1,50 @@
-/* "Copyright [year] <Copyright Owner>" */
 #include <iostream>
 
-#include "Word.h"
-
-int LIFE = 5;
+#include "hangman.hpp"
+#include "wordreader.hpp"
 
 int main() {
-    Word MysteryWord("dictionary");
+  try {
+    WordReader wordreader;
+    std::string hidden_word = wordreader.from_file("dictionary");
+    Hangman hangman(hidden_word);
+    std::set<char> missed_letters;
 
-    char GuessedLetter = ' ';
+    std::cout << ">> Welcome to the game HANGMAN" << std::endl;
+    std::cout << ">> You have only " << hangman.get_lives()
+              << " chances to miss" << std::endl;
+    std::cout << ">> GLHF" << std::endl;
+    char guessed_letter;
+    while (true) {
+      std::cout << ">> Guess Letter: ";
+      std::cin >> guessed_letter;
+      if (hangman.guess_letter(guessed_letter))
+        std::cout << ">> Hit!" << std::endl;
+      else
+        std::cout << ">> Missed, now you have " << hangman.get_lives()
+                  << " attempts" << std::endl;
 
-    std::cout << "> Welcome to \"The Gallow\" game!" << std::endl;
-    std::cout << "> You have no more than " << LIFE;
-    std::cout << " attempts to make a mistake." << std::endl;
+      std::cout << ">>" << std::endl;
+      if (hangman.lives_ended()) {
+        std::cout << ">> You lost!" << std::endl;
+        break;
+      } else if (hangman.all_letters_known()) {
+        std::cout << ">> You won!" << std::endl;
+        break;
+      }
 
-    while (LIFE != 0) {
-        std::cout << "> Guess a letter: " << std::endl;
-        std::cout << "< ";
-        std::cin >> GuessedLetter;
-
-        if (MysteryWord.IsLetterInWord(GuessedLetter))
-            std::cout << "> Hit!" << std::endl;
-
-        if (!MysteryWord.IsLetterInGuessed(GuessedLetter)) {
-            LIFE--;
-            std::cout << "> Missed, you have only " << LIFE;
-            std::cout << " attempts now." << std::endl;
+      missed_letters = hangman.get_missed_letters();
+      std::cout << ">> ";
+      for (auto it = hidden_word.begin(); it < hidden_word.end(); ++it) {
+        if (missed_letters.find(*it) == missed_letters.end()) {
+          std::cout << *it;
+        } else {
+          std::cout << '*';
         }
-        std::cout << "> " << std::endl;
-        MysteryWord.PrintWord();
-
-        if (MysteryWord.GuessToWin == 0) {
-            std::cout << "> YOU WON!" << std::endl;
-            break;
-        }
+      }
+      std::cout << std::endl << ">>" << std::endl;
     }
-
-    if (LIFE == 0)
-        std::cout << "> Haha, you lost!" << std::endl;
-
-    return 0;
+  } catch (...) {
+    std::cout << "Something went wrong..." << std::endl;
+  }
 }

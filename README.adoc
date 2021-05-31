@@ -1,3 +1,7 @@
-clone repository: git clone https://gitlab.com/BogChamp/the-gallow.git 
-assemble the game: make 
-run the game: ./gallow
+#Follow the instructions:
+
+1. git clone https://gitlab.com/BogChamp/the-gallow.git
+
+2. make
+
+3. ./hangman
