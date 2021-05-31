@@ -77,7 +77,7 @@ TEST(FooTest, TEST4) {
   EXPECT_TRUE(hangman2.guess_letter('g'));
   missed_letters = hangman2.get_missed_letters();
   for (auto it = hidden_word.begin(); it < hidden_word.end(); ++it) {
-      stream << *it;
+    stream << *it;
   }
   EXPECT_EQ(stream.str(), "testing");
   stream.str("");
