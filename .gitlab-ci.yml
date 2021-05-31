@@ -10,9 +10,11 @@ before_script:
     - pip3 install gcovr
 
 lint:
+  script:
     - make lint
 
 test:
+  script:
     - make test
 
 build:
