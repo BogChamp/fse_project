@@ -2,6 +2,8 @@
 #include <ctime>
 #include <fstream>
 #include <iostream>
+#include <iterator>
+#include <vector>
 
 class WordReader {
 public:

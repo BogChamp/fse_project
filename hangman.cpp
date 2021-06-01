@@ -1,18 +1,10 @@
 #include "hangman.hpp"
 
-Hangman::Hangman(const std::string &word_, size_t lives_) {
-  word = word_;
-  lives = lives_;
+Hangman::Hangman(const std::string &word, size_t lives)
+    : word(word), lives(lives) {
   for (auto it = word.begin(); it < word.end(); ++it) {
     missed_letters.insert(*it);
   }
-}
-
-Hangman::Hangman(const Hangman &copy) {
-  word = copy.word;
-  known_letters = copy.known_letters;
-  missed_letters = copy.missed_letters;
-  lives = copy.lives;
 }
 
 auto Hangman::guess_letter(char letter) -> bool {
@@ -34,4 +26,14 @@ bool Hangman::all_letters_known() const { return missed_letters.empty(); }
 
 bool Hangman::lives_ended() const { return (lives == 0); }
 
-std::set<char> Hangman::get_missed_letters() const { return missed_letters; }
+std::string Hangman::get_known_letters() {
+  std::string known_letters = "";
+  for (auto it = word.begin(); it < word.end(); ++it) {
+    if (missed_letters.find(*it) == missed_letters.end()) {
+      known_letters += *it;
+    } else {
+      known_letters += '*';
+    }
+  }
+  return known_letters;
+}

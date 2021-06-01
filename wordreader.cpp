@@ -2,32 +2,24 @@
 
 std::string WordReader::from_file(const std::string &filename) const {
   std::ifstream file(filename);
-  std::string word = "";
+  std::string word;
 
   if (!file.is_open()) {
-    throw std::exception();
+    throw std::runtime_error("Can't open a file!");
   } else {
-    size_t count_lines = 0;
-    std::ifstream lines_counter(filename);
-
-    while (!lines_counter.eof()) {
-      if (lines_counter.get() == '\n')
-        ++count_lines;
-    }
+    std::vector<std::string> words_from_dict;
+    std::copy(std::istream_iterator<std::string>(file),
+              std::istream_iterator<std::string>(),
+              std::back_inserter(words_from_dict));
 
     uint32_t seed = time(0);
     int line;
-    if (count_lines != 0U) {
-      line = rand_r(&seed) % count_lines;
-      while (line != 0) {
-        while (file.get() != '\n')
-          ;
-        line--;
-      }
+    if (words_from_dict.size() != 0U) {
+      line = rand_r(&seed) % words_from_dict.size();
+      word = words_from_dict[line];
+    } else {
+      throw std::runtime_error("No words in dictionary!");
     }
-    int c;
-    while ((c = file.get()) != '\n')
-      word += c;
   }
   file.close();
 

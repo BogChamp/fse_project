@@ -33,18 +33,9 @@ int main() {
         break;
       }
 
-      missed_letters = hangman.get_missed_letters();
-      std::cout << ">> ";
-      for (auto it = hidden_word.begin(); it < hidden_word.end(); ++it) {
-        if (missed_letters.find(*it) == missed_letters.end()) {
-          std::cout << *it;
-        } else {
-          std::cout << '*';
-        }
-      }
-      std::cout << std::endl << ">>" << std::endl;
+      std::cout << ">> The word: " << hangman.get_known_letters() << std::endl;
     }
-  } catch (...) {
-    std::cout << "Something went wrong..." << std::endl;
+  } catch (std::runtime_error &e) {
+    std::cout << e.what() << std::endl;
   }
 }
