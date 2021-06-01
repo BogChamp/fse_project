@@ -29,5 +29,4 @@ lint:
     stage: lint
     script:
         - apt-get install clang-format -y
-        - apt-get install clang-tidy -y
         - make lint

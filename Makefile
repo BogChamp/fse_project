@@ -14,7 +14,6 @@ hangman.o: hangman.cpp
 wordreader.o: wordreader.cpp
 
 lint: *.cpp *.hpp
-	clang-tidy *.cpp *.hpp -checks=-*,clang-analyzer-*,-clang-analyzer-cplusplus* --
 	clang-format --Werror --dry-run *.hpp *.cpp
 
 coverage: hangman.cpp wordreader.cpp test.cpp
