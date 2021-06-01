@@ -1,0 +1,30 @@
+image: gcc
+
+before_script:
+    - apt-get update -y
+    - apt-get install clang-format -y
+    - apt-get install clang-tidy -y
+    - pip3 install gcovr
+
+stages:
+    - build
+    - test
+    - lint
+
+build:
+    stage: build
+    script:
+        - make
+    artifacts:
+        paths:
+            - hangman
+
+test:
+    stage: test
+    script:
+        - make test
+
+lint:
+    stage: lint
+    script:
+        - make lint
