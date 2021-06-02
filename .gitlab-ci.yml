@@ -11,6 +11,7 @@ stages:
 build:
     stage: build
     script:
+        - apt-get install libgtest-dev -y
         - make
     artifacts:
         paths:
