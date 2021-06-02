@@ -23,4 +23,4 @@ test: coverage
 
 .PHONY: clean
 clean:
-	rm *.o
+	$(RM) *.o hangman
