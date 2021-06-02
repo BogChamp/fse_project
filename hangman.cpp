@@ -26,7 +26,7 @@ bool Hangman::all_letters_known() const { return missed_letters.empty(); }
 
 bool Hangman::lives_ended() const { return (lives == 0); }
 
-std::string Hangman::get_known_letters() {
+std::string Hangman::get_known_letters() const {
   std::string known_letters = "";
   for (auto it = word.begin(); it < word.end(); ++it) {
     if (missed_letters.find(*it) == missed_letters.end()) {

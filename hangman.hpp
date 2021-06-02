@@ -16,5 +16,5 @@ public:
   size_t get_lives() const;
   bool all_letters_known() const;
   bool lives_ended() const;
-  std::string get_known_letters();
+  std::string get_known_letters() const;
 };

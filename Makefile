@@ -1,37 +1,27 @@
-CC = g++
 CPPFLAGS = -std=c++17 -Wall -Wextra -Werror -g
-FLAGS = -lgtest -lpthread --coverage -fprofile-arcs -ftest-coverage -fPIC -O0 
+FLAGS = --coverage -fPIC -O0
+LDLIBS = -lgtest -lpthread
 
-.PHONY: clean fclean tclean
+hangman: main.o hangman.o wordreader.o
+	g++ main.o hangman.o wordreader.o -o hangman
 
-all: main.o hangman.o wordreader.o
-	@$(CC) main.o hangman.o wordreader.o -o hangman
-
-main.o: main.cpp
-
-hangman.o: hangman.cpp
-
-wordreader.o: wordreader.cpp
-
+.PHONY: lint
 lint: *.cpp *.hpp
 	clang-format --Werror --dry-run *.hpp *.cpp
 
+.PHONY: coverage
 coverage: hangman.cpp wordreader.cpp test.cpp
-	$(CC) -c $(FLAGS) hangman.cpp
-	$(CC) -c $(FLAGS) wordreader.cpp
-	$(CC) -c $(FLAGS) test.cpp
+	g++ -c $(FLAGS) hangman.cpp
+	g++ -c $(FLAGS) wordreader.cpp
+	g++ -c $(FLAGS) test.cpp
 
+.PHONY: test
 test: coverage
-	@$(CC) test.o hangman.o wordreader.o $(FLAGS) -o tmp
+	g++ test.o hangman.o wordreader.o $(FLAGS) $(LDLIBS) -o tmp
 	./tmp
 	gcovr -r .
 	$(RM) tmp *.o *.gcda *.gcno
 
+.PHONY: clean
 clean:
 	rm *.o
-
-fclean:
-	$(RM) *.o hangman
-
-tclean:
-	$(RM) *.o rm test
