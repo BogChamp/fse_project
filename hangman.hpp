@@ -11,7 +11,7 @@ class Hangman {
   std::set<char> known_letters;
 
 public:
-  Hangman(const std::string &word_ = "hangman", size_t lives_ = 5);
+  Hangman(const std::string &word = "hangman", size_t lives = 5);
   bool guess_letter(char letter);
   size_t get_lives() const;
   bool all_letters_known() const;

@@ -2,8 +2,7 @@ CPPFLAGS = -std=c++17 -Wall -Wextra -Werror -g
 FLAGS = --coverage -fPIC -O0
 LDLIBS = -lgtest -lpthread
 
-hangman: main.o hangman.o wordreader.o
-	g++ main.o hangman.o wordreader.o -o hangman
+hangman: main.cpp hangman.cpp wordreader.cpp
 
 .PHONY: lint
 lint: *.cpp *.hpp
