@@ -1,7 +1,7 @@
 # Follow the instructions:
 
 ----
-git clone https://gitlab.com/BogChamp/the-gallow.git
+git clone git@github.com:BogChamp/fse_project.git
 make
 ./hangman
 ----
