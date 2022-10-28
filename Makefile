@@ -2,7 +2,11 @@ CPPFLAGS = -std=c++17 -Wall -Wextra -Werror -g
 FLAGS = --coverage -fPIC -O0
 LDLIBS = -lgtest -lpthread
 
+all: hangman
+
+.PHONY: hangman
 hangman: main.cpp hangman.cpp wordreader.cpp
+	g++ main.cpp hangman.cpp wordreader.cpp $(CPPFLAGS) -o hangman
 
 .PHONY: lint
 lint: *.cpp *.hpp
@@ -15,7 +19,7 @@ coverage: hangman.cpp wordreader.cpp test.cpp
 	g++ -c $(FLAGS) test.cpp
 
 .PHONY: test
-test: coverage
+test: coverage 
 	g++ test.o hangman.o wordreader.o $(FLAGS) $(LDLIBS) -o tmp
 	./tmp
 	gcovr -r .
