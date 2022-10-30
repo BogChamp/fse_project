@@ -1,6 +1,7 @@
-# Follow the instructions:
+# Instructions for playing the game:
 
 ----
+## Build the game locally: 
 To download and start to play game, run this:
 1) git clone git@github.com:BogChamp/fse_project.git
 2) chmod +x prereqs.sh build.sh test.sh
@@ -13,9 +14,11 @@ run ./test.sh
 
 How to play the game:
 <img width="964" src=“https://github.com/BogChamp/fse_project/blob/game/example.png”>
-
+![alt text](https://github.com/BogChamp/fse_project/blob/game/example.png?raw=true)
 
 Input a letter. If you guessed one of word's letter, game will show letter's positions. 
 Otherwise, you will lose 1 live. If you lose 5 lives, game will be ended.
 
 ----
+
+## Play with docker file 
