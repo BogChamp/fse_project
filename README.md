@@ -15,6 +15,7 @@ run ./test.sh
 ## Play with docker file (recomended!):
 
 **NB this way assumes you have Docker installed on your computer**
+
 Run `docker run -t hangman-game .` inside the directory
 How to play the game:
 <img width="964" src=“https://github.com/BogChamp/fse_project/blob/game/example.png”>
