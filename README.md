@@ -2,6 +2,7 @@
 
 ----
 ## Set up the game: 
+
 ### 1. Build the game locally (Ubuntu only): 
 To download and start to play game, proceed with the following steps:
 1) git clone git@github.com:BogChamp/fse_project.git
