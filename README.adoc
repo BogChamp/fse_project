@@ -13,7 +13,7 @@ run ./test.sh
 
 How to play the game:
 <img
-src=“example.png”
+src=“https://github.com/BogChamp/fse_project/blob/game/example.png?raw=true”
 raw=true
 alt=“Subject Pronouns”
 style=“margin-right: 10px;”
