@@ -1,7 +1,7 @@
 # Instructions for playing the game:
 
 ----
-## 1. Build the game locally: 
+## 1. Build the game locally (Ubuntu only): 
 To download and start to play game, proceed with the following steps:
 1) git clone git@github.com:BogChamp/fse_project.git
 2) chmod +x prereqs.sh build.sh test.sh
