@@ -18,3 +18,4 @@ RUN pip install gcovr
 RUN git clone https://github.com/BogChamp/fse_project.git && cd fse_project
 WORKDIR /fse_project
 
+RUN make test
