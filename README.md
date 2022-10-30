@@ -12,12 +12,8 @@ To test game, run this:
 run ./test.sh
 
 How to play the game:
-<img
-src=“https://github.com/BogChamp/fse_project/blob/game/example.png?raw=true”
-raw=true
-alt=“Subject Pronouns”
-style=“margin-right: 10px;”
-/>
+<img width="964" alt="example" src=“https://github.com/BogChamp/fse_project/blob/game/example.png?raw=true”>
+
 
 Input a letter. If you guessed one of word's letter, game will show letter's positions. 
 Otherwise, you will lose 1 live. If you lose 5 lives, game will be ended.
