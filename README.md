@@ -25,7 +25,7 @@ After building the Docker image run `docker run -it --rm hangman-game`
 To play run `make && ./hangman`
 
 ---
-## Play the game:
+## How to play the game:
 ![Example of the play](https://github.com/BogChamp/fse_project/blob/game/example.png?raw=true)
 
 Input a letter. If you guessed one of word's letter, game will show letter's positions. 
