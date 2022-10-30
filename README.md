@@ -12,7 +12,7 @@ To test game, run this:
 run ./test.sh
 
 How to play the game:
-<img width="964" alt="example" src=“https://github.com/BogChamp/fse_project/blob/game/example.png?raw=true”>
+<img width="964" alt="example" src=“https://github.com/BogChamp/fse_project/blob/game/example.png”>
 
 
 Input a letter. If you guessed one of word's letter, game will show letter's positions. 
